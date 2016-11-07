@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1478554816 source:c:\users\bartw\yandexdisk\documents\kpi\“ – œ«\radio _kpi_\c project\main.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+
+1478555316 source:c:\users\bartw\yandexdisk\documents\kpi\“ – œ«\radio _kpi_\c project\input_playlist.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	"input_playlist.h"
+	"playlist_validation.h"
+
+1478553819 c:\users\bartw\yandexdisk\documents\kpi\“ – œ«\radio _kpi_\c project\input_playlist.h
+
+1478551720 c:\users\bartw\yandexdisk\documents\kpi\“ – œ«\radio _kpi_\c project\playlist_validation.h
+
