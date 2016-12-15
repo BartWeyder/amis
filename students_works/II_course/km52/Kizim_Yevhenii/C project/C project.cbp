@@ -32,20 +32,25 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="edit_playlist_interface.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="edit_playlist_interface.h" />
 		<Unit filename="input_playlist.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="input_playlist.h" />
+		<Unit filename="load_music_in_ram.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="load_music_in_ram.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="output_audiofile_info.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="output_audiofile_info.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="output_audiofile_info.h" />
 		<Unit filename="play_audio.c">
 			<Option compilerVar="CC" />
 			<Option target="&lt;{~None~}&gt;" />
@@ -55,7 +60,6 @@
 		</Unit>
 		<Unit filename="playlist_validation.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="playlist_validation.h">
 			<Option target="&lt;{~None~}&gt;" />

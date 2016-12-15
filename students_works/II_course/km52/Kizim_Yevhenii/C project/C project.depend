@@ -21,7 +21,7 @@
 
 1478618541 c:\users\bartw\yandexdisk\documents\kpi\“ – œ«\radio _kpi_\c project\playlist_validation.h
 
-1479151394 source:c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\input_playlist.c
+1479151658 source:c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\input_playlist.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
@@ -34,12 +34,15 @@
 
 1479142386 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\playlist_validation.h
 
-1479139421 source:c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\main.c
+1481832501 source:c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\main.c
 	<stdio.h>
 	<conio.h>
 	<string.h>
 	<stdlib.h>
+	"output_audiofile_info.h"
 	"input_playlist.h"
+	"edit_playlist_interface.h"
+	"play_audio.h"
 
 1479151532 source:c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\playlist_validation.c
 	<stdio.h>
@@ -47,4 +50,58 @@
 	<string.h>
 	<stdlib.h>
 	"playlist_validation.h"
+
+1481743853 source:c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\edit_playlist_interface.c
+	"load_music_in_ram.h"
+	<stdlib.h>
+
+1481743788 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\load_music_in_ram.h
+
+1481831839 source:c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\load_music_in_ram.c
+	"load_music_in_ram.h"
+	"output_audiofile_info.h"
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<sys/types.h>
+	<dirent.h>
+	<stdio.h>
+	<stdbool.h>
+
+1481743892 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\output_audiofile_info.h
+
+1481744469 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\edit_playlist_interface.h
+	"load_music_in_ram.h"
+
+1481744894 source:c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\output_audiofile_info.c
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+	"output_audiofile_info.h"
+
+1481831360 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\play_audio.h
+
+1481834175 source:c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\play_audio.c
+	<conio.h>
+	"inc/fmod.h"
+	<stdbool.h>
+	<stdio.h>
+
+1480603862 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod.h
+	"fmod_common.h"
+
+1480603862 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_common.h
+	"fmod_codec.h"
+	"fmod_dsp.h"
+	"fmod_output.h"
+
+1480603862 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_codec.h
+
+1480603862 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_dsp.h
+	"fmod_dsp_effects.h"
+
+1480603862 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_dsp_effects.h
+
+1480603862 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_output.h
 

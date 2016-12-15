@@ -11,6 +11,6 @@ typedef struct IDv3Tag
     unsigned short genre;
 } ID3TAG;
 
-ID3TAG* output_audiofile_info(char* audiofile_path);
+ID3TAG* output_audiofile_info(char audiofile_path[]);
 
 #endif // OUTPUT_AUDIOFILE_INFO_H_INCLUDED
