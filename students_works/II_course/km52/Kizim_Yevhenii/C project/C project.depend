@@ -105,3 +105,131 @@
 
 1480603862 c:\users\bartw\documents\git\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_output.h
 
+1481743853 source:c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\edit_playlist_interface.c
+	"load_music_in_ram.h"
+	<stdlib.h>
+
+1482427427 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\load_music_in_ram.h
+
+1482445314 source:c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\input_playlist.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	<stdbool.h>
+	"input_playlist.h"
+	"playlist_validation.h"
+
+1479142798 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\input_playlist.h
+
+1479142386 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\playlist_validation.h
+
+1482427428 source:c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\load_music_in_ram.c
+	"load_music_in_ram.h"
+	"output_audiofile_info.h"
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<sys/types.h>
+	<dirent.h>
+	<stdio.h>
+	<stdbool.h>
+
+1481743892 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\output_audiofile_info.h
+
+1481991898 source:c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\output_audiofile_info.c
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+	"output_audiofile_info.h"
+
+1479151532 source:c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\playlist_validation.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	"playlist_validation.h"
+
+1482446212 source:c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\main.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	<stdbool.h>
+	"output_audiofile_info.h"
+	"input_playlist.h"
+	"playlist_edit.h"
+	"play_audio.h"
+	"playlist_edit.h"
+	"playlist_save.h"
+
+1481744469 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\edit_playlist_interface.h
+	"load_music_in_ram.h"
+
+1482184170 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\play_audio.h
+	"load_music_in_ram.h"
+
+1482185901 source:c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\play_audio.c
+	<conio.h>
+	"inc/fmod.h"
+	<stdbool.h>
+	<stdio.h>
+	"load_music_in_ram.h"
+
+1480603862 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod.h
+	"fmod_common.h"
+
+1480603862 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_common.h
+	"fmod_codec.h"
+	"fmod_dsp.h"
+	"fmod_output.h"
+
+1480603862 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_codec.h
+
+1480603862 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_dsp.h
+	"fmod_dsp_effects.h"
+
+1480603862 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_dsp_effects.h
+
+1480603862 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\inc\fmod_output.h
+
+1482438665 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\playlist_edit.h
+	"load_music_in_ram.h"
+
+1482446361 source:c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\playlist_edit.c
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<stdbool.h>
+	<string.h>
+	"playlist_edit.h"
+	"load_music_in_ram.h"
+	"rlutil.h"
+
+1464900568 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1482444380 source:c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\playlist_save.c
+	<stdio.h>
+	<conio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	"playlist_save.h"
+	"load_music_in_ram.h"
+
+1482444355 c:\users\bartw\documents\git_pls\amis\students_works\ii_course\km52\kizim_yevhenii\c project\playlist_save.h
+	"load_music_in_ram.h"
+

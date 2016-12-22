@@ -2,9 +2,10 @@
 #include <conio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "input_playlist.h"
 #include "playlist_validation.h"
-#include <stdbool.h>
+
 
 P_INFO* input_playlist() {
     P_INFO* user_playlist=malloc(sizeof(P_INFO));
@@ -39,10 +40,14 @@ P_INFO* input_playlist() {
     user_playlist->songs_counter = validate_playlist(user_playlist->path);
     if (user_playlist->songs_counter==0) {
         printf("\nPlaylist is empty or does not exist! \n");
+        printf("Press ENTER to continue...");
+        getchar();
         return NULL;
     }
     else{
         printf("\nThere are %d song(s) in current playlist.", user_playlist->songs_counter);
+        printf("Press ENTER to continue...");
+        getchar();
         return user_playlist;
     }
 }

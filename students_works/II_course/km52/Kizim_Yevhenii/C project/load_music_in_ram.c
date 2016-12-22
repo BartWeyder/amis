@@ -8,10 +8,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-//declare local functions
-SONG_INFO* get_element_by_id (SONG_INFO* first_element, int id);
-
-SONG_INFO* add_song() {
+SONG_INFO* add_element() {
     SONG_INFO* new_element = malloc(sizeof(SONG_INFO));
     new_element->song_next=NULL;
     return new_element;
@@ -25,6 +22,8 @@ int add_song_info(SONG_INFO* song) {
     else {
         strcpy(song->song_artist, temp_song_info->artist);
         strcpy(song->song_name, temp_song_info->name);
+        strcpy(song->song_album, temp_song_info->album);
+        strcpy(song->song_year, temp_song_info->year);
         free(temp_song_info);
         return 1;
     }
@@ -39,7 +38,7 @@ SONG_INFO* get_all_music() {
 
     if (music_directory != NULL){
         //add first element
-        first_element = add_song();
+        first_element = add_element();
         //read file from directory
         music_file = readdir(music_directory);
         music_file = readdir(music_directory);
@@ -52,7 +51,7 @@ SONG_INFO* get_all_music() {
         add_song_info(current_element);
         //continue same with next files
         while (music_file = readdir (music_directory)){
-            current_element->song_next = add_song();
+            current_element->song_next = add_element();
             current_element = current_element->song_next;
             strcpy(current_element->song_path,"music\\");
             strcat(current_element->song_path, music_file->d_name);
@@ -70,22 +69,30 @@ SONG_INFO* get_music_from_playlist(char playlist_path[]) {
     char buff[200];
     SONG_INFO* first_element=NULL;
     SONG_INFO* current_element=NULL;
-    bool first = true;
+    char *token = NULL;
 
     playlist_file = fopen(playlist_path,"r");
 
+    //add first element
+    fgets(buff, 200, playlist_file);
+    token = strtok(buff, ";");
+    first_element = add_element();
+    strcpy(first_element->song_path, token);
+    if (add_song_info(first_element)==0) {
+        free(first_element);
+        return NULL;
+    }
+    current_element = first_element;
+
+    //add next elements
     while (!feof(playlist_file)) {
         fgets(buff, 200, playlist_file);
-        if (first==true)
-            current_element = first_element;
-        current_element = add_song();
-        strcpy(current_element->song_path, buff);
+        token = strtok(buff, ";");
+        current_element->song_next = add_element();
+        current_element = current_element->song_next;
+        strcpy(current_element->song_path, token);
         if (add_song_info(current_element)==0)
             free(current_element);
-        else {
-            first=false;
-            current_element = current_element->song_next;
-        }
     }
     return first_element;
 }
@@ -98,7 +105,7 @@ SONG_INFO* get_element_by_id (SONG_INFO* first_element, int id) {
     return found_element;
 }
 
-int swap_song(SONG_INFO* first_element, int song_i, int song_j) {
+SONG_INFO* swap_song(SONG_INFO* first_element, int song_i, int song_j) {
     if (song_i>=song_j)
         return 0;
 
@@ -149,21 +156,28 @@ int swap_song(SONG_INFO* first_element, int song_i, int song_j) {
             song_j_prev_element->song_next = song_i_element;
         }
     }
-    return 1;
+    return first_element;
 }
 
-int delete_element_by_id(SONG_INFO* first_element, int id) {
+SONG_INFO* delete_element_by_id(SONG_INFO* first_element, int id) {
     if (first_element==NULL)
-        return 0;
+        return NULL;
 
     SONG_INFO* prev_element = NULL;
     SONG_INFO* current_element = NULL;
+
+    if (id == 1) {
+        prev_element = first_element;
+        first_element = first_element->song_next;
+        free(prev_element);
+        return first_element;
+    }
 
     prev_element = get_element_by_id(first_element, id-1);
     current_element = prev_element->song_next;
     prev_element->song_next = current_element->song_next;
     free(current_element);
-    return 1;
+    return first_element;
 }
 
 int free_memory(SONG_INFO* music_list) {

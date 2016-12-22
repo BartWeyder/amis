@@ -26,17 +26,7 @@ ID3TAG* output_audiofile_info(char audiofile_path[]) {
     ID3TAG* pId3Tag = NULL;
     if ((pId3Tag = (ID3TAG*)(buf)) != NULL)
     {
-        /*printf("Current song info:\n");
-        printf("Name:        %s\n",pId3Tag->name);
-        printf("Artist:      %s\n",pId3Tag->artist);
-        printf("Album:       %s\n",pId3Tag->album);
-        printf("Year:        %s\n",pId3Tag->year);
-        printf("Description: %s\n",pId3Tag->description);
-        printf("Genre:       %d\n",pId3Tag->genre);
-        */
     }
-
     fclose(audiofile);
-    //getch();
     return pId3Tag;
 }

@@ -15,6 +15,14 @@
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
+				<Linker>
+					<Add library="lib/fmod_vc.lib" />
+					<Add library="lib/fmod64_vc.lib" />
+					<Add library="lib/fmodL_vc.lib" />
+					<Add library="lib/fmodL64_vc.lib" />
+					<Add library="lib/libfmod.a" />
+					<Add library="lib/libfmodL.a" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/C project" prefix_auto="1" extension_auto="1" />
@@ -32,10 +40,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="edit_playlist_interface.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="edit_playlist_interface.h" />
+		<Unit filename="inc/fmod.h" />
+		<Unit filename="inc/fmod.hpp" />
+		<Unit filename="inc/fmod_codec.h" />
+		<Unit filename="inc/fmod_common.h" />
+		<Unit filename="inc/fmod_dsp.h" />
+		<Unit filename="inc/fmod_dsp_effects.h" />
+		<Unit filename="inc/fmod_errors.h" />
+		<Unit filename="inc/fmod_output.h" />
 		<Unit filename="input_playlist.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -53,17 +65,19 @@
 		<Unit filename="output_audiofile_info.h" />
 		<Unit filename="play_audio.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="play_audio.h">
-			<Option target="&lt;{~None~}&gt;" />
+		<Unit filename="play_audio.h" />
+		<Unit filename="playlist_edit.c">
+			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="playlist_edit.h" />
 		<Unit filename="playlist_validation.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="playlist_validation.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="rlutil.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
