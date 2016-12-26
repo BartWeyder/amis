@@ -131,7 +131,7 @@ int dump_list (SONG_INFO* first_element, int current_element_id, int chosen_elem
     return 1;
 }
 
-int playlist_menu(SONG_INFO* first_element, int song_amount) {
+SONG_INFO* playlist_menu(SONG_INFO* first_element, int* song_amount) {
     int current = 1;
     int chosen = 0;
     bool swap = false;
@@ -140,7 +140,7 @@ int playlist_menu(SONG_INFO* first_element, int song_amount) {
     SONG_INFO* temp_list = NULL;
 
     if (dump_list(first_element, 1, 0)==0)
-        return 0;
+        return NULL;
 
     while (finish == false) {
         input_symbol = getch();
@@ -205,6 +205,7 @@ int playlist_menu(SONG_INFO* first_element, int song_amount) {
                     dump_list(first_element, chosen-1, 0);
                 chosen = 0;
                 swap = false;
+                *song_amount = *song_amount-1;
             }
             else
                 printf("\a");
@@ -221,7 +222,7 @@ int playlist_menu(SONG_INFO* first_element, int song_amount) {
             }
             break;
         case 80:
-            if (current == song_amount)
+            if (current == *song_amount)
                 printf("\a");
             else {
                 current++;
@@ -238,8 +239,8 @@ int playlist_menu(SONG_INFO* first_element, int song_amount) {
                 printf("\nAdding aborted.");
             else {
                 first_element = temp_list;
-                song_amount++;
-                current = song_amount;
+                *song_amount = *song_amount+1;
+                current = *song_amount;
                 system("cls");
                 dump_list(first_element, current, 0);
                 printf("\nAdded successfully.");
@@ -250,7 +251,7 @@ int playlist_menu(SONG_INFO* first_element, int song_amount) {
             break;
         }
     }
-    return 1;
+    return first_element;
 }
 
 SONG_INFO* add_new_song_to_list_menu(SONG_INFO* song_list) {
@@ -393,7 +394,7 @@ int main_menu() {
             if (playlist_opened == true) {
                 system("cls");
                 current_element = playlist;
-                playlist_menu(playlist, new_playlist_file->songs_counter);
+                playlist = playlist_menu(playlist, &(new_playlist_file->songs_counter));
             }
             else {
                 printf("\a\nOpen playlist first.\n");
