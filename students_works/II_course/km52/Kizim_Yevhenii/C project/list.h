@@ -1,5 +1,5 @@
-#ifndef LOAD_MUSIC_IN_RAM_H_INCLUDED
-#define LOAD_MUSIC_IN_RAM_H_INCLUDED
+#ifndef LIST_H_INCLUDED
+#define LIST_H_INCLUDED
 
 typedef struct song_info {
     char song_path[50];
@@ -19,4 +19,4 @@ SONG_INFO* swap_song(SONG_INFO* first_element, int song_i, int song_j);
 SONG_INFO* delete_element_by_id (SONG_INFO* first_element, int id);
 int free_memory(SONG_INFO* music_list);
 
-#endif // LOAD_MUSIC_IN_RAM_H_INCLUDED
+#endif // LIST_H_INCLUDED

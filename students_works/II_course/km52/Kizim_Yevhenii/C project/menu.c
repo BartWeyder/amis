@@ -3,9 +3,11 @@
 #include <math.h>
 #include <stdbool.h>
 #include <string.h>
-#include "playlist_edit.h"
-#include "load_music_in_ram.h"
+#include "menu.h"
+#include "list.h"
 #include "rlutil.h"
+#include "playlist.h"
+#include "music.h"
 
 //declarating local functions
 int get_page_id (int element_id);
@@ -129,36 +131,6 @@ int dump_list (SONG_INFO* first_element, int current_element_id, int chosen_elem
     return 1;
 }
 
-SONG_INFO* add_new_song_to_list(SONG_INFO* song_list) {
-    char button;
-    char temp_song_path[50];
-    SONG_INFO* new_element = add_element();
-    SONG_INFO* current_element = song_list;
-    while (true) {
-        system("cls");
-        printf("Enter file name without extension: ");
-        gets(temp_song_path);
-        strcat(temp_song_path, ".mp3");
-        strcpy(new_element->song_path, "music\\");
-        strcat(new_element->song_path, temp_song_path);
-        if (add_song_info(new_element)==0) {
-            printf("This file doesn't exist in \\music folder.\n");
-            printf("Press ESC to abort adding or any other button to retry.");
-            button = getch();
-            if (button == 27) {
-                free(new_element);
-                return NULL;
-            }
-        }
-        else {
-            while (current_element->song_next!=NULL)
-                current_element = current_element->song_next;
-            current_element->song_next = new_element;
-            return song_list;
-        }
-    }
-}
-
 int playlist_menu(SONG_INFO* first_element, int song_amount) {
     int current = 1;
     int chosen = 0;
@@ -261,7 +233,7 @@ int playlist_menu(SONG_INFO* first_element, int song_amount) {
             break;
         case 'a':
             temp_list = first_element;
-            temp_list = add_new_song_to_list(temp_list);
+            temp_list = add_new_song_to_list_menu(temp_list);
             if (temp_list == NULL)
                 printf("\nAdding aborted.");
             else {
@@ -279,4 +251,176 @@ int playlist_menu(SONG_INFO* first_element, int song_amount) {
         }
     }
     return 1;
+}
+
+SONG_INFO* add_new_song_to_list_menu(SONG_INFO* song_list) {
+    char button;
+    char temp_song_path[50];
+    SONG_INFO* new_element = add_element();
+    SONG_INFO* current_element = song_list;
+    while (true) {
+        system("cls");
+        printf("Enter file name without extension: ");
+        gets(temp_song_path);
+        strcat(temp_song_path, ".mp3");
+        strcpy(new_element->song_path, "music\\");
+        strcat(new_element->song_path, temp_song_path);
+        if (add_song_info(new_element)==0) {
+            printf("This file doesn't exist in \\music folder.\n");
+            printf("Press ESC to abort adding or any other button to retry.");
+            button = getch();
+            if (button == 27) {
+                free(new_element);
+                return NULL;
+            }
+        }
+        else {
+            while (current_element->song_next!=NULL)
+                current_element = current_element->song_next;
+            current_element->song_next = new_element;
+            return song_list;
+        }
+    }
+}
+
+int player_interface (SONG_INFO* song) {
+    if (song == NULL)
+        return 0;
+    printf("            **************************************************\n");
+    printf("            *                   RADIO 'KPI'                  *\n");
+    printf("            **************************************************\n\n\n\n\n");
+    printf("             Currently playing\n");
+    printf("                Artist:       %s\n", song->song_artist);
+    printf("                Song  :       %s\n", song->song_name);
+    printf("                Album :       %s\n", song->song_album);
+    printf("                Year  :       %s\n\n\n\n", song->song_year);
+    printf("             Press 's' to skip song or 'e' to exit from playback...");
+    return 1;
+}
+
+int playlist_save_menu (SONG_INFO* first_element, char playlist_path[]) {
+    char user_choice;
+
+    system("cls");
+    printf("Do you want save as? (y/n) ");
+    user_choice = getch();
+    if (user_choice == 'y') {
+        char file_name[30];
+        char file_path[50];
+        strcpy(file_path,"playlists\\");
+        while (true) {
+            system("cls");
+            printf("Enter name of file here (without extension): ");
+            gets(file_name);
+            strcat(file_path, file_name);
+            if (playlist_save(first_element, file_path)==1) {
+                printf("\n Saved successfully.");
+                printf("\n Press ENTER to continue.");
+                getchar();
+                return 1;
+            }
+            else {
+                printf("\nERROR. Press ENTER and try again...");
+                getchar();
+            }
+        }
+    }
+    else {
+        if (user_choice == 'n') {
+            playlist_save(first_element, playlist_path);
+            return 1;
+        }
+        else
+            printf("\a");
+    }
+}
+
+int main_menu() {
+    char user_choice;
+    SONG_INFO* all_music = NULL;
+    SONG_INFO* playlist = NULL;
+    SONG_INFO* current_element;
+    P_INFO* new_playlist_file;
+    bool playlist_opened = false;
+
+    while (true) {
+        system("cls");
+        printf("Press 1-6 buttons to choose:\n");
+        printf("1. Launch all music\n");
+        printf("2. Open playlist\n");
+        printf("3. Launch playlist\n");
+        printf("4. Edit playlist\n");
+        printf("5. Save playlist\n");
+        printf("6. Exit\n");
+        user_choice = getch();
+        switch (user_choice) {
+        case '1':
+            all_music = get_all_music();
+            current_element = all_music;
+            while (current_element!=NULL) {
+                system("cls");
+                player_interface(current_element);
+                printf("\n All music playing.");
+                if (play_audiofile(current_element->song_path) == 0)
+                    break;
+                current_element = current_element->song_next;
+            }
+            break;
+        case '2':
+            new_playlist_file = input_playlist();
+            playlist_opened = true;
+            playlist = get_music_from_playlist(new_playlist_file->path);
+            break;
+        case '3':
+            if (playlist_opened == true) {
+                current_element = playlist;
+                while (current_element!=NULL) {
+                    system("cls");
+                    player_interface(current_element);
+                    printf("\n Playlist playing.");
+                    if (play_audiofile(current_element->song_path) == 0)
+                        break;
+                    current_element = current_element->song_next;
+                }
+            }
+            else {
+                printf("\a\nOpen playlist first.\n");
+                printf("Press ENTER to continue...");
+                getchar();
+            }
+            break;
+        case '4':
+            if (playlist_opened == true) {
+                system("cls");
+                current_element = playlist;
+                playlist_menu(playlist, new_playlist_file->songs_counter);
+            }
+            else {
+                printf("\a\nOpen playlist first.\n");
+                printf("Press ENTER to continue...");
+                getchar();
+            }
+            break;
+        case '5':
+            if (playlist_opened == true) {
+                current_element = playlist;
+                playlist_save_menu(current_element, new_playlist_file->path);
+            }
+            else {
+                printf("\a\nOpen playlist first.\n");
+                printf("Press ENTER to continue...");
+                getchar();
+            }
+            break;
+        case '6':
+            free_memory(all_music);
+            free_memory(playlist);
+            free(new_playlist_file);
+            return 0;
+            break;
+        default:
+            printf("\a");
+            break;
+        }
+    }
 }

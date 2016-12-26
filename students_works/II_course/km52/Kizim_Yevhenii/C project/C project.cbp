@@ -48,35 +48,25 @@
 		<Unit filename="inc/fmod_dsp_effects.h" />
 		<Unit filename="inc/fmod_errors.h" />
 		<Unit filename="inc/fmod_output.h" />
-		<Unit filename="input_playlist.c">
+		<Unit filename="list.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="input_playlist.h" />
-		<Unit filename="load_music_in_ram.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="load_music_in_ram.h" />
+		<Unit filename="list.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="output_audiofile_info.c">
+		<Unit filename="menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="output_audiofile_info.h" />
-		<Unit filename="play_audio.c">
+		<Unit filename="menu.h" />
+		<Unit filename="music.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="play_audio.h" />
-		<Unit filename="playlist_edit.c">
+		<Unit filename="music.h" />
+		<Unit filename="playlist.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="playlist_edit.h" />
-		<Unit filename="playlist_validation.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="playlist_validation.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="playlist.h" />
 		<Unit filename="rlutil.h" />
 		<Extensions>
 			<code_completion />

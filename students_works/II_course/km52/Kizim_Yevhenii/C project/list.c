@@ -1,5 +1,3 @@
-#include "load_music_in_ram.h"
-#include "output_audiofile_info.h"
 #include <stdlib.h>
 #include <conio.h>
 #include <string.h>
@@ -7,6 +5,8 @@
 #include <dirent.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include "list.h"
+#include "music.h"
 
 SONG_INFO* add_element() {
     SONG_INFO* new_element = malloc(sizeof(SONG_INFO));
